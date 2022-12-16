@@ -33,8 +33,8 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 
 	
 	public function get_categories() {
-		return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
-		
+		//return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
+		return [ 'general' ];
 	}
 
 
