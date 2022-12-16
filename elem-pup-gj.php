@@ -11,7 +11,7 @@
 function register_ele_pup( $widgets_manager ) {
 
 	require_once( __DIR__ . '/widgets/ele_pup_repeater.php' );
-	//require_once( __DIR__ . '/widgets/hello-world-widget-2.php' );
+	//require_once( __DIR__ . '/widgets/hello-world-widget-2.php' );ff
 
 	$widgets_manager->register( new \Ele_Pup_Repeater() );
 	//$widgets_manager->register( new \Elementor_Hello_World_Widget_2() );
