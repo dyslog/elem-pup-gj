@@ -33,10 +33,10 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 
 	
 	public function get_categories() {
-		//return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
-		return array( 'general' );
+		return [ \Elementor\Modules\DynamicTags\Module::TEXT_CATEGORY ];
+		
 	}
-/**/
+
 
 
 
@@ -96,35 +96,46 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 		$settings = $this->get_settings_for_display();
 		echo $settings['repeater_field_name'] . 'rep name ';
 
+
+
 // Check rows existexists.
 $repeater_field_name = $settings['repeater_field_name'];
-if( have_rows('gallery') ):
-
-    // Loop through rows.
-    while( have_rows('gallery') ) : the_row();
-
-        // Load sub field value.
-        $sub_value = get_sub_field('title');
-		echo the_sub_field('title');
-		echo 'hello'; 
-        // Do something...
-
-    // End loop.
-    endwhile;
-
-// No value.
-else :
-    // Do something...
-endif;
 
 
+if (class_exists('ACF')) {
 
+echo 'scfff';
+
+	if( have_rows('gallery') ):
+
+		// Loop through rows.
+		while( have_rows('gallery') ) : the_row();
+	
+			// Load sub field value.
+			$sub_value = get_sub_field('title');
+			echo the_sub_field('title');
+			echo 'hello'; 
+			// Do something...
+	
+		// End loop.
+		endwhile;
+	
+	// No value.
+	else :
+		// Do something...
+	endif;
+	
+}
+
+
+
+/*
 $fields = $this->get_settings( 'fields' );
 		$sum = 0;
 		$count = 0;
 		$value = 0;
 
-		// Make sure that ACF if installed and activated
+	
 		if ( ! function_exists( 'get_field' ) ) {
 			echo 0;
 			return;
@@ -144,7 +155,7 @@ $fields = $this->get_settings( 'fields' );
 
 		echo $value;
 
-
+*/
 
 	}
 
