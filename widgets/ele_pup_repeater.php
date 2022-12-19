@@ -63,10 +63,10 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 		$this->add_control(
 			'repeater_field_name',
 			[
-				'label' => esc_html__( 'value', 'elementor-currency-control' ),
+				'label' => esc_html__( 'Repeater Name', 'elementor-currency-control' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
 				'default' => 'hike',
-				'placeholder' => 'dded',
+				'placeholder' => '',
 			]
 		);
 		$this->add_control(
@@ -106,15 +106,17 @@ if (class_exists('ACF')) {
 
 echo 'scfff';
 
-	if( have_rows('gallery') ):
+	if( have_rows($repeater_field_name) ):
 
 		// Loop through rows.
-		while( have_rows('gallery') ) : the_row();
-	
+		while( have_rows($repeater_field_name) ) : the_row();
+
+			$image = get_sub_field('image');
 			// Load sub field value.
+			echo wp_get_attachment_image( $image, 'full' ); 
 			$sub_value = get_sub_field('title');
 			echo the_sub_field('title');
-			echo 'hello'; 
+			echo 'hellso'.$repeater_field_name; 
 			// Do something...
 	
 		// End loop.
