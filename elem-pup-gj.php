@@ -8,6 +8,10 @@
  * Text Domain: elementor-pup
  */
 
+
+
+
+
 function register_ele_pup( $widgets_manager ) {
 
 	require_once( __DIR__ . '/widgets/ele_pup_repeater.php' );
@@ -15,7 +19,11 @@ function register_ele_pup( $widgets_manager ) {
 
 	$widgets_manager->register( new \Ele_Pup_Repeater() );
 	//$widgets_manager->register( new \Elementor_Hello_World_Widget_2() );
-
+	
 }
 add_action( 'elementor/widgets/register', 'register_ele_pup' );
+
+
+
+
 ?>

@@ -15,7 +15,7 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-code';
+		return 'eicon-editor-list-ul';
 	}
 
 	/*public function get_categories() {
@@ -37,6 +37,25 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 		return [ 'general' ];
 	}
 
+
+	public function __construct($data = [], $args = null) {
+		parent::__construct($data, $args);
+  
+
+		wp_register_script( 'your-script', plugin_dir_url( __FILE__ ) . 'assets/js/flickity.pkgd.min.js', array( 'jquery' ), $plugin['Version'], true );
+		
+		//wp_register_script( 'script-handle', 'path/to/file.js', [ 'elementor-frontend' ], '1.0.0', true );
+		wp_register_script( 'your-script', plugin_dir_url( __FILE__ ) . 'assets/js/file.js', array( 'jquery' ), $plugin['Version'], true );
+		//wp_register_style( 'your-style', plugin_dir_url( __FILE__ ) . 'assets/css/file.css', array(), $plugin['Version'] );
+		wp_register_style( 'your-style', plugin_dir_url( __FILE__ ) . 'assets/css/flickity.css', array(), $plugin['Version'] );
+	}
+  
+	 public function get_script_depends() {
+		 return [ 'your-script' ];
+	 }
+	 public function get_style_depends() {
+		return [ 'your-style' ];
+	}
 
 
 
@@ -93,6 +112,10 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 	protected function render() {
 		
 
+
+
+
+
 		$settings = $this->get_settings_for_display();
 		echo $settings['repeater_field_name'] . 'rep name ';
 
@@ -104,21 +127,22 @@ $repeater_field_name = $settings['repeater_field_name'];
 
 if (class_exists('ACF')) {
 
-echo 'scfff';
+echo '<div class="main-carousel  js-flickity">';
 
 	if( have_rows($repeater_field_name) ):
 
 		// Loop through rows.
 		while( have_rows($repeater_field_name) ) : the_row();
 
+		echo '<div class="carousel-cell">';
 			$image = get_sub_field('image');
 			// Load sub field value.
 			echo wp_get_attachment_image( $image, 'full' ); 
 			$sub_value = get_sub_field('title');
 			echo the_sub_field('title');
-			echo 'hellso'.$repeater_field_name; 
+			echo '<div class="csstry">'.$repeater_field_name.'</div>'; 
 			// Do something...
-	
+			echo '</div>';
 		// End loop.
 		endwhile;
 	
@@ -126,10 +150,12 @@ echo 'scfff';
 	else :
 		// Do something...
 	endif;
+
+
+
+	echo '</div>';
 	
 }
-
-
 
 /*
 $fields = $this->get_settings( 'fields' );
