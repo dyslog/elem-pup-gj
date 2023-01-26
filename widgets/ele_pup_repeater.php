@@ -84,7 +84,7 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Repeater Name', 'elementor-currency-control' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => 'hike',
+				'default' => '',
 				'placeholder' => '',
 			]
 		);
@@ -93,7 +93,7 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Image Field', 'elementor-currency-control' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => 'hike',
+				'default' => '',
 				'placeholder' => '',
 			]
 		);
@@ -102,7 +102,7 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 			[
 				'label' => esc_html__( 'Caption Field', 'elementor-currency-control' ),
 				'type' => \Elementor\Controls_Manager::TEXT,
-				'default' => 'hike',
+				'default' => '',
 				'placeholder' => '',
 			]
 		);
