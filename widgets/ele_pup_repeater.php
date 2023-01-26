@@ -89,6 +89,24 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 			]
 		);
 		$this->add_control(
+			'repeater_field_image',
+			[
+				'label' => esc_html__( 'Image Field', 'elementor-currency-control' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => 'hike',
+				'placeholder' => '',
+			]
+		);
+		$this->add_control(
+			'repeater_field_caption',
+			[
+				'label' => esc_html__( 'Caption Field', 'elementor-currency-control' ),
+				'type' => \Elementor\Controls_Manager::TEXT,
+				'default' => 'hike',
+				'placeholder' => '',
+			]
+		);
+		/*$this->add_control(
 			'fields',
 			[
 				'label' => esc_html__( 'Fields', 'elementor-acf-average-dynamic-tag' ),
@@ -97,7 +115,7 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 					'active' => true,
 				],
 			]
-		);
+		);*/
 	
 		$this->end_controls_section();
 	}
@@ -117,13 +135,14 @@ class Ele_Pup_Repeater extends \Elementor\Widget_Base {
 
 
 		$settings = $this->get_settings_for_display();
-		echo $settings['repeater_field_name'] . 'rep name ';
+		//echo $settings['repeater_field_name'] . 'rep name ';
 
 
 
 // Check rows existexists.
 $repeater_field_name = $settings['repeater_field_name'];
-
+$repeater_field_image = $settings['repeater_field_image'];
+$repeater_field_caption = $settings['repeater_field_caption'];
 
 if (class_exists('ACF')) {
 
@@ -135,12 +154,12 @@ echo '<div class="main-carousel  js-flickity">';
 		while( have_rows($repeater_field_name) ) : the_row();
 
 		echo '<div class="carousel-cell">';
-			$image = get_sub_field('image');
+			$image = get_sub_field($repeater_field_image);
 			// Load sub field value.
 			echo wp_get_attachment_image( $image, 'full' ); 
-			$sub_value = get_sub_field('title');
-			echo the_sub_field('title');
-			echo '<div class="csstry">'.$repeater_field_name.'</div>'; 
+			//$sub_value = get_sub_field($repeater_field_caption);
+			//echo the_sub_field($repeater_field_caption);
+			//echo '<div class="csstry">'.$repeater_field_name.'</div>'; 
 			// Do something...
 			echo '</div>';
 		// End loop.
