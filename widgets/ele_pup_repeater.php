@@ -158,7 +158,7 @@ echo '<div class="main-carousel  js-flickity">';
 			// Load sub field value.
 			echo wp_get_attachment_image( $image, 'full' ); 
 			//$sub_value = get_sub_field($repeater_field_caption);
-			//echo the_sub_field($repeater_field_caption);
+			echo the_sub_field($repeater_field_caption);
 			//echo '<div class="csstry">'.$repeater_field_name.'</div>'; 
 			// Do something...
 			echo '</div>';
